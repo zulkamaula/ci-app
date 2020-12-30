@@ -26,6 +26,7 @@ class Mahasiswa_model extends CI_model
     }
 
     // akhir pagination
+
     public function tambahDataMahasiswa()
     {
         $data = [

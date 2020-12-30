@@ -4,23 +4,26 @@
 
             <div class="card">
                 <div class="card-header">
-                    Form Tambah Data Mahasiswa
+                    Form Tambah Data Dosen
                 </div>
                 <div class="card-body">
 
                     <form action="" method="post">
                         <div class="form-group">
-                            <label for="nama">Nama</label>
-                            <input type="text" class="form-control" name="nama" id="nama">
+                            <label for="nama_dosen">Nama</label>
+                            <input type="text" class="form-control" name="nama_dosen" id="nama_dosen">
                             <small class="form-text text-danger">
-                                <?= form_error('nama'); ?>
+                                <?= form_error('nama_dosen'); ?>
                             </small>
                         </div>
                         <div class="form-group">
-                            <label for="npm">NPM</label>
-                            <input type="text" class="form-control" name="npm" id="npm">
+                            <label for="npm">No. Telepon</label>
+                            <input type="text" class="form-control" name="tlp" id="tlp">
+                            <small class="form-text float-right">
+                                (Nomor harus diisi 11 digit)
+                            </small>
                             <small class="form-text text-danger">
-                                <?= form_error('npm'); ?>
+                                <?= form_error('tlp'); ?>
                             </small>
                         </div>
                         <div class="form-group">
@@ -31,16 +34,14 @@
                             </small>
                         </div>
                         <div class="form-group">
-                            <label for="jurusan">Jurusan</label>
-                            <select class="form-control" name="jurusan" id="jurusan">
-                                <option value="Teknik Informatika">Teknik Informatika</option>
-                                <option value="Teknik Industri">Teknik Industri</option>
-                                <option value="Ekonomi">Ekonomi</option>
-                                <option value="DKV">DKV</option>
-                                <option value="Bahasa Inggris">Bahasa Inggris</option>
-                            </select>
+                            <label for="alamat">Alamat</label>
+                            <input type="text" class="form-control" name="alamat" id="alamat">
+                            <small class="form-text text-danger">
+                                <?= form_error('alamat'); ?>
+                            </small>
+
                         </div>
-                        <button type="submit" name=tambah class="btn btn-primary mt-3 float-right">Tambah Data</button>
+                        <button type="submit" name="tambah" class="btn btn-primary mt-3 float-right">Tambah Data</button>
                     </form>
 
                 </div>

@@ -2,6 +2,12 @@
 
 class Dosen extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Dosen_model');
+        $this->load->library('form_validation');
+    }
 
     public function index()
     {
@@ -42,6 +48,47 @@ class Dosen extends CI_Controller
 
         $this->load->view('tamplates/header', $data);
         $this->load->view('dosen/index', $data);
+        $this->load->view('tamplates/footer');
+    }
+
+    public function tambah()
+    {
+        $data['judul'] = 'Form Tambah Data Dosen';
+
+        // $this->load->view('tamplates/header', $data);
+        // $this->load->view('dosen/tambah', $data);
+        // $this->load->view('tamplates/footer');
+
+        $this->form_validation->set_rules('nama_dosen', 'Nama', 'required');
+        $this->form_validation->set_rules('tlp', 'Tlp', 'required|numeric');
+        $this->form_validation->set_rules('email', 'E-mail', 'required|valid_email');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('tamplates/header', $data);
+            $this->load->view('dosen/tambah');
+            $this->load->view('tamplates/footer');
+        } else {
+            $this->Dosen_model->tambahDataDosen();
+            $this->session->set_flashdata('flash', ' ditambahkan.');
+            redirect('dosen');
+        }
+    }
+
+    public function hapus($id)
+    {
+        $this->Dosen_model->hapusDataDosen($id);
+        $this->session->set_flashdata('flash', ' dihapus!');
+        redirect('dosen');
+    }
+
+    public function detail($id)
+    {
+        $data['judul'] = 'Detail Data Dosen';
+        $data['dosen'] = $this->Dosen_model->getDosenById($id);
+
+        $this->load->view('tamplates/header', $data);
+        $this->load->view('dosen/detail', $data);
         $this->load->view('tamplates/footer');
     }
 }

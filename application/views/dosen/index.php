@@ -1,6 +1,19 @@
 <div class="container">
 
-    <div class="row mt-5">
+    <?php if ($this->session->flashdata('flash')) : ?>
+        <div class="row mt-3 justify-content-center">
+            <div class="col-md-6">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Data Dosen <strong>berhasil</strong><?= $this->session->flashdata('flash'); ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <div class="row mt-3">
 
         <div class="col-md-5">
             <form action="<?= base_url('dosen'); ?>" method="post">
@@ -59,9 +72,9 @@
                             <td><?= $d['email']; ?></td>
 
                             <td>
-                                <a href="" class="badge badge-danger float-right">hapus</a>
+                                <a href="<?= base_url(); ?>dosen/hapus/<?= $d['id']; ?>" class="badge badge-danger float-right" onclick="return confirm('Yakin ingin hapus?')">hapus</a>
 
-                                <a href="" class="badge badge-success float-right">ubah</a>
+                                <a href="<?= base_url(); ?>dosen/detail/<?= $d['id']; ?>" class="badge badge-success float-right">ubah</a>
 
                                 <a href="" class="badge badge-warning float-right">detail</a>
 
