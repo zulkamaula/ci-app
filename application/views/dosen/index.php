@@ -74,7 +74,7 @@
                             <td>
                                 <a href="<?= base_url(); ?>dosen/hapus/<?= $d['id']; ?>" class="badge badge-danger float-right" onclick="return confirm('Yakin ingin hapus?')">hapus</a>
 
-                                <a href="" class="badge badge-success float-right">ubah</a>
+                                <a href="<?= base_url(); ?>dosen/ubah/<?= $d['id']; ?>" class="badge badge-success float-right">ubah</a>
 
                                 <a href="<?= base_url(); ?>dosen/detail/<?= $d['id']; ?>" class="badge badge-warning float-right">detail</a>
 

@@ -43,4 +43,17 @@ class Dosen_model extends CI_Model
     {
         return $this->db->get_where('dosen', ['id' => $id])->row_array();
     }
+
+    public function ubahDataDosen()
+    {
+        $data = [
+            "nama_dosen" => $this->input->post('nama_dosen', true),
+            "tlp" => $this->input->post('tlp', true),
+            "email" => $this->input->post('email', true),
+            "alamat" => $this->input->post('alamat')
+        ];
+
+        $this->db->where('id', $this->input->post('id'));
+        $this->db->update('dosen', $data);
+    }
 }

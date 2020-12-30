@@ -91,4 +91,26 @@ class Dosen extends CI_Controller
         $this->load->view('dosen/detail', $data);
         $this->load->view('tamplates/footer');
     }
+
+    public function ubah($id)
+    {
+        $data['judul'] = 'From Ubah Data Dosen';
+        $data['dosen'] = $this->Dosen_model->getDosenById($id);
+        // $data['jurusan'] = ['Teknik Informatika', 'Teknik Industri', 'Ekonomi', 'DKV', 'Bahasa Inggris'];
+
+        $this->form_validation->set_rules('nama_dosen', 'Nama', 'required');
+        $this->form_validation->set_rules('tlp', 'Telepon', 'required|numeric');
+        $this->form_validation->set_rules('email', 'E-mail', 'required|valid_email');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('tamplates/header', $data);
+            $this->load->view('dosen/ubah', $id);
+            $this->load->view('tamplates/footer');
+        } else {
+            $this->Dosen_model->ubahDataDosen();
+            $this->session->set_flashdata('flash', ' diubah.');
+            redirect('dosen');
+        }
+    }
 }
