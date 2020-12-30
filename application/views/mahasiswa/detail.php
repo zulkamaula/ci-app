@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="row mt-4 justify-content-center">
-        <div class="col-lg-6">
+    <div class="row mt-5 justify-content-center">
+        <div class="col-lg-6 mt-5">
 
             <div class="card">
                 <div class="card-header">
@@ -8,7 +8,7 @@
 
                     <a href="<?= base_url(); ?>mahasiswa/ubah/<?= $mahasiswa['id']; ?>" class="badge badge-success float-right">ubah</a>
 
-                    <a href="<?= base_url(); ?>mahasiswa/hapus/<?= $mahasiswa['id']; ?>" class="badge badge-danger float-right tombol-hapus">hapus</a>
+                    <a href="<?= base_url(); ?>mahasiswa/hapus/<?= $mahasiswa['id']; ?>" class="badge badge-danger float-right tombol-hapus" onclick="return confirm('Yakin ingin hapus?')">hapus</a>
 
                 </div>
                 <div class="card-body">
