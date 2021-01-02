@@ -1,7 +1,9 @@
 <div class="container">
 
+    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>">
+    </div>
     <?php if ($this->session->flashdata('flash')) : ?>
-        <div class="row mt-3 justify-content-center">
+        <!-- <div class="row mt-3 justify-content-center">
             <div class="col-md-6">
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     Data Dosen <strong>berhasil</strong><?= $this->session->flashdata('flash'); ?>
@@ -10,7 +12,7 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </div> -->
     <?php endif; ?>
 
     <div class="row mt-3">
@@ -72,7 +74,7 @@
                             <td><?= $d['email']; ?></td>
 
                             <td>
-                                <a href="<?= base_url(); ?>dosen/hapus/<?= $d['id']; ?>" class="badge badge-danger float-right" onclick="return confirm('Yakin ingin hapus?')">hapus</a>
+                                <a href="<?= base_url(); ?>dosen/hapus/<?= $d['id']; ?>" class="badge badge-danger float-right tombol-hapus">hapus</a>
 
                                 <a href="<?= base_url(); ?>dosen/ubah/<?= $d['id']; ?>" class="badge badge-success float-right">ubah</a>
 

@@ -69,7 +69,7 @@ class Mahasiswa extends CI_Controller
             $this->load->view('tamplates/footer');
         } else {
             $this->Mahasiswa_model->tambahDataMahasiswa();
-            $this->session->set_flashdata('flash', ' ditambahkan.');
+            $this->session->set_flashdata('flash', ' mahasiswa ditambahkan!');
             redirect('mahasiswa');
         }
     }
@@ -77,7 +77,7 @@ class Mahasiswa extends CI_Controller
     public function hapus($id)
     {
         $this->Mahasiswa_model->hapusDataMahasiswa($id);
-        $this->session->set_flashdata('flash', ' dihapus!');
+        $this->session->set_flashdata('flash', ' mahasiswa dihapus!');
         redirect('mahasiswa');
     }
 
@@ -107,7 +107,7 @@ class Mahasiswa extends CI_Controller
             $this->load->view('tamplates/footer');
         } else {
             $this->Mahasiswa_model->ubahDataMahasiswa();
-            $this->session->set_flashdata('flash', ' diubah.');
+            $this->session->set_flashdata('flash', ' mahasiswa diubah!');
             redirect('mahasiswa');
         }
     }

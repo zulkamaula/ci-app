@@ -70,7 +70,7 @@ class Dosen extends CI_Controller
             $this->load->view('tamplates/footer');
         } else {
             $this->Dosen_model->tambahDataDosen();
-            $this->session->set_flashdata('flash', ' ditambahkan.');
+            $this->session->set_flashdata('flash', ' dosen ditambahkan!');
             redirect('dosen');
         }
     }
@@ -78,7 +78,7 @@ class Dosen extends CI_Controller
     public function hapus($id)
     {
         $this->Dosen_model->hapusDataDosen($id);
-        $this->session->set_flashdata('flash', ' dihapus!');
+        $this->session->set_flashdata('flash', ' dosen dihapus!');
         redirect('dosen');
     }
 
@@ -109,7 +109,7 @@ class Dosen extends CI_Controller
             $this->load->view('tamplates/footer');
         } else {
             $this->Dosen_model->ubahDataDosen();
-            $this->session->set_flashdata('flash', ' diubah.');
+            $this->session->set_flashdata('flash', ' dosen diubah!');
             redirect('dosen');
         }
     }

@@ -8,7 +8,7 @@
 
                     <a href="<?= base_url(); ?>mahasiswa/ubah/<?= $mahasiswa['id']; ?>" class="badge badge-success float-right">ubah</a>
 
-                    <a href="<?= base_url(); ?>mahasiswa/hapus/<?= $mahasiswa['id']; ?>" class="badge badge-danger float-right tombol-hapus" onclick="return confirm('Yakin ingin hapus?')">hapus</a>
+                    <a href="<?= base_url(); ?>mahasiswa/hapus/<?= $mahasiswa['id']; ?>" class="badge badge-danger float-right tombol-hapus">hapus</a>
 
                 </div>
                 <div class="card-body">

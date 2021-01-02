@@ -1,10 +1,11 @@
 const flashData = $('.flash-data').data('flashdata');
 
 if( flashData ){
-    Swal({
-        title: 'Data Mahasiswa' + flashData,
-        text: 'berhasil',
-        type: 'success'
+    Swal.fire({
+        icon: 'success',
+        title: 'Data' + flashData,
+        text: 'Coba di cek biar lebih pasti..',
+        footer: ''
     });
 }
 
@@ -14,18 +15,19 @@ $('.tombol-hapus').on('click', function(e){
     e.preventDefault();
     const href = $(this).attr('href');
 
-    Swal({
-        title: 'Apakah anda yakin?',
-        text: 'Data Mahasiswa akan dihapus',
-        type: 'warning',
-        showCencelButton: true,
+    Swal.fire({
+        title: 'Apa kamu yakin?',
+        text: 'Datanya akan dihapus lho..',
+        icon: 'warning',
+        showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Ya, hapus!'
-    }).then((result) => {
+        confirmButtonText: 'Hapus dong!'
+      }).then((result) => {
         if (result.value) {
-           document.location.href = href;
+        //   
+            document.location.href = href;
         }
-    })
+      })
 
 });

@@ -1,11 +1,11 @@
 <div class="container">
 
     <!-- SweetAlert2 -->
-    <!-- <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>">
-    </div> -->
+    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>">
+    </div>
 
     <?php if ($this->session->flashdata('flash')) : ?>
-        <div class="row mt-1 justify-content-center">
+        <!-- <div class="row mt-1 justify-content-center">
             <div class="col-lg-6">
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     Data mahasiswa <strong>berhasil</strong><?= $this->session->flashdata('flash'); ?>
@@ -14,7 +14,8 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </div> -->
+
     <?php endif; ?>
 
     <div class="row mt-1 mb-2 justify-content-center">
