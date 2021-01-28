@@ -91,6 +91,12 @@ class Mahasiswa extends CI_Controller
         $data['judul'] = 'Detail Data Mahasiswa';
         $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswaById($id);
 
+        $this->load->model('Mahasiswa_model', 'namaProdi');
+
+        $data['dataMahasiswa'] = $this->namaProdi->getMahasiswa();
+        $data['prodi'] = $this->db->get('nama_prodi')->result_array();
+
+
         $this->load->view('tamplates/header', $data);
         $this->load->view('mahasiswa/detail', $data);
         $this->load->view('tamplates/footer');

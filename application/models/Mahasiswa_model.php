@@ -10,10 +10,10 @@ class Mahasiswa_model extends CI_model
     // pagination
     public function getMahasiswa($limit, $start, $keyword = null)
     {
-        // $query = "SELECT `mahasiswa`.*, `prodi`.`nama_prodi`
-        //             FROM `mahasiswa` JOIN `prodi`
-        //               ON `mahasiswa`.`id_prodi` = `prodi`.`id_prodi`
-        // ";
+        $query = "SELECT `mahasiswa`.*, `prodi`.`nama_prodi`
+                    FROM `mahasiswa` JOIN `prodi`
+                      ON `mahasiswa`.`id_prodi` = `prodi`.`id_prodi`
+        ";
 
         if ($keyword) {
             $this->db->like('nim', $keyword);
@@ -26,7 +26,7 @@ class Mahasiswa_model extends CI_model
             $this->db->or_like('telepon', $keyword);
         }
 
-        return $this->db->get('mahasiswa', $limit, $start)->result_array();
+        return $this->db->get($query, $limit, $start)->result_array();
     }
 
     public function countAllMahasiswa()
