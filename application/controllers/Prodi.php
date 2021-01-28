@@ -1,19 +1,17 @@
 <?php
 
-class Mahasiswa extends CI_Controller
+class Prodi extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Mahasiswa_model');
+        $this->load->model('Prodi_model');
         $this->load->library('form_validation');
     }
-
-
     public function index()
     {
-        $data['judul'] = 'Daftar Mahasiswa';
-        $data['mahasiswa'] = $this->Mahasiswa_model->getAllMahasiswa();
+        $data['judul'] = 'Prodi';
+        $data['prodi'] = $this->Prodi_model->getAllProdi();
 
 
         // pagination
@@ -29,18 +27,12 @@ class Mahasiswa extends CI_Controller
         }
 
         // config
-        $config['base_url'] = 'http://localhost/ci-app/mahasiswa/index';
+        $config['base_url'] = 'http://localhost/ci-app/prodi/index';
 
-        $this->db->like('nim', $data['keyword']);
-        $this->db->or_like('id_prodi', $data['keyword']);
-        $this->db->or_like('nama', $data['keyword']);
-        $this->db->or_like('tmp_lahir', $data['keyword']);
-        $this->db->or_like('tgl_lahir', $data['keyword']);
-        $this->db->or_like('tahun_masuk', $data['keyword']);
-        $this->db->or_like('alamat', $data['keyword']);
-        $this->db->or_like('telepon', $data['keyword']);
-
-        $this->db->from('mahasiswa');
+        $this->db->like('id_prodi', $data['keyword']);
+        $this->db->or_like('id_fakultas', $data['keyword']);
+        $this->db->or_like('nama_prodi', $data['keyword']);
+        $this->db->from('prodi');
 
         $config['total_rows'] = $this->db->count_all_results();
 
@@ -53,10 +45,10 @@ class Mahasiswa extends CI_Controller
         // inisialisasi
         $this->pagination->initialize($config);
 
-        $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswa($config['per_page'], $config['start'], $data['keyword']);
+        $data['prodi'] = $this->Prodi_model->getProdi($config['per_page'], $config['start'], $data['keyword']);
 
         $this->load->view('tamplates/header', $data);
-        $this->load->view('mahasiswa/index', $data);
+        $this->load->view('prodi/index', $data);
         $this->load->view('tamplates/footer');
     }
 

@@ -20,18 +20,18 @@
 
     <div class="row mt-1 mb-2 justify-content-center">
         <div class="col-lg-8">
-            <h3 class="text-center"> DAFTAR MAHASISWA </h3>
+            <h3 class="text-center"> Fakultas </h3>
         </div>
     </div>
 
     <div class="row justify-content-center">
 
         <div class="col-lg-3 mt-2">
-            <a href="<?= base_url(); ?>mahasiswa/tambah" class="btn btn-primary">Tambah Data Mahasiswa</a>
+            <a href="<?= base_url(); ?>fakultas/tambah" class="btn btn-primary">Tambah Data Fakultas</a>
         </div>
 
         <div class="col-lg-5 mt-2">
-            <form action="<?= base_url('mahasiswa'); ?>" method="post">
+            <form action="<?= base_url('fakultas'); ?>" method="post">
 
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Cari data mahasiswa.." name="keyword" autocomplete="off" autofocus>
@@ -47,23 +47,23 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <hr>
-            <?php if (empty($mahasiswa)) : ?>
+            <?php if (empty($fakultas)) : ?>
                 <div class="alert alert-danger" role="alert">
-                    Data mahasiswa tidak ditemukan.
+                    Data fakultas tidak ditemukan.
                 </div>
             <?php endif; ?>
 
             <ul class="list-group mb-3">
 
-                <?php foreach ($mahasiswa as $mhs) : ?>
+                <?php foreach ($fakultas as $f) : ?>
                     <li class="list-group-item">
-                        <?= $mhs['nama']; ?>
+                        <?= $f['nama_fakultas']; ?>
 
-                        <!-- <a href="<?= base_url(); ?>mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge badge-danger float-right" onclick=" return confirm('yakin ingin hapus data?');">hapus</a> -->
+                        <!-- <a href="<?= base_url(); ?>mahasiswa/hapus/<?= $f['id']; ?>" class="badge badge-danger float-right" onclick=" return confirm('yakin ingin hapus data?');">hapus</a> -->
 
-                        <!-- <a href="<?= base_url(); ?>mahasiswa/detail/<?= $mhs['id']; ?>" class="badge badge-success float-right">ubah</a> -->
+                        <!-- <a href="<?= base_url(); ?>mahasiswa/detail/<?= $f['id']; ?>" class="badge badge-success float-right">ubah</a> -->
 
-                        <a href="<?= base_url(); ?>mahasiswa/detail/<?= $mhs['nim']; ?>" class="badge badge-primary float-right">detail</a>
+                        <a href="<?= base_url(); ?>fakultas/detail/<?= $f['id_fakultas']; ?>" class="badge badge-primary float-right">detail</a>
 
                     </li>
                 <?php endforeach; ?>

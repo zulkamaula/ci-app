@@ -36,7 +36,10 @@
                         <a class="nav-link" href="<?= base_url(); ?>dosen">Dosen</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="<?= base_url(); ?>fakultas">Fakultas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url(); ?>prodi">Prodi</a>
                     </li>
                 </ul>
             </div>

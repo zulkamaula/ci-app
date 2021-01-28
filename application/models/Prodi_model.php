@@ -1,42 +1,30 @@
 <?php
 
-class Mahasiswa_model extends CI_model
+class Prodi_model extends CI_Model
 {
-    public function getAllMahasiswa()
+    public function getAllProdi()
     {
-        return $this->db->get('mahasiswa')->result_array();
+        return $this->db->get('prodi')->result_array();
     }
 
-    // pagination
-    public function getMahasiswa($limit, $start, $keyword = null)
+    public function getProdi()
     {
-        // $query = "SELECT `mahasiswa`.*, `prodi`.`nama_prodi`
-        //             FROM `mahasiswa` JOIN `prodi`
-        //               ON `mahasiswa`.`id_prodi` = `prodi`.`id_prodi`
-        // ";
+        $query = "SELECT `prodi`.*, `fakultas`.*
+                    FROM `prodi` JOIN `fakultas`
+                      ON `prodi`.`id_fakultas` = `fakultas`.`id_fakultas`
+        ";
 
-        if ($keyword) {
-            $this->db->like('nim', $keyword);
-            $this->db->or_like('id_prodi', $keyword);
-            $this->db->or_like('nama', $keyword);
-            $this->db->or_like('tmp_lahir', $keyword);
-            $this->db->or_like('tgl_lahir', $keyword);
-            $this->db->or_like('tahun_masuk', $keyword);
-            $this->db->or_like('alamat', $keyword);
-            $this->db->or_like('telepon', $keyword);
-        }
-
-        return $this->db->get('mahasiswa', $limit, $start)->result_array();
+        return $this->db->query($query)->result_array();
     }
 
-    public function countAllMahasiswa()
+    public function countAllProdi()
     {
-        return $this->db->get('mahasiswa')->num_rows();
+        return $this->db->get('prodi')->num_rows();
     }
 
     // akhir pagination
 
-    public function tambahDataMahasiswa()
+    public function tambahDataProdi()
     {
         $data = [
             "nim" => $this->input->post('nim', true),
@@ -51,24 +39,24 @@ class Mahasiswa_model extends CI_model
             // "jurusan" => $this->input->post('jurusan')
         ];
 
-        $this->db->insert('mahasiswa', $data);
+        $this->db->insert('prodi', $data);
     }
 
-    public function hapusDataMahasiswa($id)
+    public function hapusDataProdi($id)
     {
         // $this->db->where('id', $id);
-        // $this->db->delete('mahasiswa');
+        // $this->db->delete('Prodi');
         // atau shorthand dibawah :
 
-        $this->db->delete('mahasiswa', ['id' => $id]);
+        $this->db->delete('prodi', ['id' => $id]);
     }
 
-    public function getMahasiswaById($id)
+    public function getProdiById($id)
     {
-        return $this->db->get_where('mahasiswa', ['id' => $id])->row_array();
+        return $this->db->get_where('prodi', ['id' => $id])->row_array();
     }
 
-    public function ubahDataMahasiswa()
+    public function ubahDataProdi()
     {
         $data = [
             "nim" => $this->input->post('nim', true),
@@ -87,6 +75,6 @@ class Mahasiswa_model extends CI_model
         ];
 
         $this->db->where('id', $this->input->post('id'));
-        $this->db->update('mahasiswa', $data);
+        $this->db->update('prodi', $data);
     }
 }
